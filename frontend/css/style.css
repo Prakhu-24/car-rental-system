@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary: #0ea5a4;
+  --dark: #0f172a;
+  --light: #f1f5f9;
+  --text-light: #f8fafc;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-light);
+  min-height: 100vh;
+  background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)),
+    url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+/* Navbar */
+.site-nav {
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--text-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(6px);
+}
+.site-logo {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+.nav-link {
+  color: #e2e8f0;
+  transition: color 0.2s ease;
+}
+.nav-link:hover {
+  color: var(--primary);
+}
+
+/* Hero */
+.hero {
+  height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(rgba(15,23,42,0.7), rgba(15,23,42,0.7)),
+    url('https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  color: var(--text-light);
+  padding: 2rem;
+}
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.1rem;
+  color: #d1d5db;
+}
+
+/* Cards */
+.card {
+  background: rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: var(--text-light);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+.car-img {
+  width: 100%;
+  height: 180px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Inputs on dark bg */
+input {
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+input::placeholder { color: #cbd5e1; }
+input:focus { outline: 2px solid var(--primary); background: rgba(255,255,255,0.25); }
+
+/* Buttons */
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  transition: background 0.2s ease;
+}
+.btn-primary:hover {
+  background: #14b8a6;
+}
+
+/* Footer */
+.site-footer {
+  background: rgba(15,23,42,0.9);
+  color: #e2e8f0;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+
+/* Toast */
+#toast {
+  right: 1.25rem;
+  bottom: 1.25rem;
+  color: #fff;
+  font-weight: 600;
+}

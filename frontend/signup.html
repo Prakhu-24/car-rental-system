@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Signup — CarRental</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/auth.js"></script>
+</head>
+<body>
+
+  <header class="site-nav">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div class="site-logo">CarRental</div>
+      <div id="navLinks" class="flex items-center gap-4"></div>
+    </div>
+  </header>
+
+  <main class="flex justify-center items-center min-h-[80vh]">
+    <div class="card max-w-md w-full p-6">
+      <h2 class="text-3xl font-bold mb-2 text-center text-teal-400">Create Account</h2>
+      <p class="text-sm text-gray-300 mb-6 text-center">Join our rental family today and drive your dream car.</p>
+
+      <input id="name" placeholder="Full Name" class="w-full mb-3 p-3 rounded">
+      <input id="email" type="email" placeholder="Email" class="w-full mb-3 p-3 rounded">
+      <input id="password" type="password" placeholder="Password" class="w-full mb-4 p-3 rounded">
+
+      <button onclick="signup()" class="btn-primary w-full">Sign Up</button>
+
+      <p class="text-center text-sm mt-4">Already have an account? <a href="login.html" class="text-teal-400 hover:underline">Login</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 CarRental</p>
+  </footer>
+
+  <div id="toast" class="fixed bottom-5 right-5 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg opacity-0 translate-y-5 transition-all duration-300 ease-in-out z-50">
+    Success
+  </div>
+
+  <script>
+    async function updateNavbar() {
+      const navLinks = document.getElementById("navLinks");
+      const token = localStorage.getItem("token");
+      if (!token) { navLinks.innerHTML = '<a class="nav-link" href="login.html">Login</a><a class="nav-link" href="signup.html">Signup</a>'; return; }
+      try {
+        const res = await fetch("http://localhost:5000/api/auth/me", { headers: { Authorization: "Bearer " + token }});
+        const user = await res.json();
+        if (res.ok) {
+          navLinks.innerHTML = '<a class="nav-link" href="booking.html">My Bookings</a><button onclick="logout()" class="ml-3 text-sm text-red-400">Logout</button>';
+        } else { localStorage.removeItem("token"); navLinks.innerHTML = '<a class="nav-link" href="login.html">Login</a>'; }
+      } catch { navLinks.innerHTML = '<a class="nav-link" href="login.html">Login</a>'; }
+    }
+    function logout(){ localStorage.removeItem('token'); window.location.href='login.html'; }
+    updateNavbar();
+  </script>
+</body>
+</html>
