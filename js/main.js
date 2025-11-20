@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://car-rental-system-t7u7.onrender.com/api";
 
 let selectedCar = null;
 
