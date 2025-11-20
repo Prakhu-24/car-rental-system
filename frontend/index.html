@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CarRental — Home</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/main.js"></script>
+</head>
+
+<body class="bg-slate-900 text-white min-h-screen">
+
+  <!-- NAVBAR -->
+  <header class="bg-slate-950/90 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-teal-400 font-bold text-xl tracking-wide cursor-pointer" onclick="window.location.href='index.html'">
+        🚗 CarRental
+      </div>
+      <div id="navLinks" class="flex items-center gap-5 text-sm"></div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION WITH IMAGE -->
+  <section class="relative h-[70vh] flex items-center justify-center text-center">
+    <img 
+      src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=1600&q=80
+"
+      alt="Luxury car background"
+      class="absolute inset-0 w-full h-full object-cover opacity-60">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-slate-900/70 to-slate-900/90"></div>
+
+    <div class="relative z-10 max-w-2xl mx-auto px-6">
+      <h1 class="text-5xl font-extrabold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-300">
+        Find. Rent. Drive.
+      </h1>
+      <p class="text-gray-300 text-lg mb-2">
+        Premium cars, easy booking, and unforgettable journeys.
+      </p>
+      <p class="text-gray-400 text-sm">Your ride, your freedom.</p>
+    </div>
+  </section>
+
+  <!-- CAR GRID -->
+  <main class="container mx-auto px-6 py-14">
+    <h2 class="text-3xl font-semibold mb-10 text-center text-teal-400">
+      Our Cars
+    </h2>
+
+    <div id="carList"
+         class="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
+      <!-- Cars loaded dynamically -->
+    </div>
+  </main>
+
+  <!-- CONTACT SECTION -->
+<section id="contact" class="bg-gradient-to-b from-slate-900 to-slate-950 py-16 border-t border-white/10">
+  <div class="container mx-auto px-6 md:px-12 text-center">
+    <h2 class="text-3xl font-bold text-teal-400 mb-3">Get in Touch</h2>
+    <p class="text-gray-300 mb-10 max-w-2xl mx-auto">
+      Have questions about booking, partnerships, or feedback? We’d love to hear from you.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-8 text-left max-w-4xl mx-auto">
+
+      <!-- Contact Info -->
+      <div class="flex flex-col items-center md:items-start space-y-3 bg-white/10 p-5 rounded-lg backdrop-blur-md border border-white/10 shadow-lg hover:shadow-teal-500/20 transition">
+        <div class="text-3xl text-teal-400">📞</div>
+        <h3 class="text-xl font-semibold text-white">Call Us</h3>
+        <p class="text-gray-300 text-sm">+91 98765 43210</p>
+      </div>
+
+      <div class="flex flex-col items-center md:items-start space-y-3 bg-white/10 p-5 rounded-lg backdrop-blur-md border border-white/10 shadow-lg hover:shadow-teal-500/20 transition">
+        <div class="text-3xl text-teal-400">📧</div>
+        <h3 class="text-xl font-semibold text-white">Email</h3>
+        <p class="text-gray-300 text-sm">support@carrental.com</p>
+      </div>
+
+      <div class="flex flex-col items-center md:items-start space-y-3 bg-white/10 p-5 rounded-lg backdrop-blur-md border border-white/10 shadow-lg hover:shadow-teal-500/20 transition">
+        <div class="text-3xl text-teal-400">📍</div>
+        <h3 class="text-xl font-semibold text-white">Visit Us</h3>
+        <p class="text-gray-300 text-sm">Lucknow, Uttar Pradesh, India</p>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="max-w-xl mx-auto mt-12 bg-white/10 p-6 rounded-xl border border-white/10 backdrop-blur-md shadow-md hover:shadow-teal-500/20 transition">
+      <h3 class="text-xl font-semibold mb-4 text-teal-400 text-center">Send a Message</h3>
+      <form onsubmit="event.preventDefault(); showToast('📩 Message sent! (Demo only)');">
+        <input type="text" placeholder="Your Name" class="w-full mb-3 p-3 rounded bg-white/20 border border-white/30 text-white placeholder-gray-300">
+        <input type="email" placeholder="Your Email" class="w-full mb-3 p-3 rounded bg-white/20 border border-white/30 text-white placeholder-gray-300">
+        <textarea placeholder="Your Message" class="w-full mb-3 p-3 rounded bg-white/20 border border-white/30 text-white placeholder-gray-300 h-28"></textarea>
+        <button type="submit" class="w-full py-2 rounded-lg font-semibold bg-teal-500 hover:bg-teal-600 text-white transition">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950/90 border-t border-white/10 text-center text-gray-400 py-4">
+    <p>© 2025 CarRental — Designed by Prakhar Kumar Rai & Pranav Patidar</p>
+  </footer>
+
+  <!-- BOOKING MODAL (keep your working version) -->
+
+  <!-- TOAST -->
+  <div id="toast"
+       class="fixed bottom-5 right-5 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg opacity-0 translate-y-5 transition-all duration-300 ease-in-out z-50">
+    Success
+  </div>
+
+  <!-- NAVBAR SCRIPT -->
+  <script>
+    async function updateNavbar() {
+      const navLinks = document.getElementById("navLinks");
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        navLinks.innerHTML = `
+          <a href="login.html" class="text-gray-300 hover:text-teal-400 transition">Login</a>
+          <a href="signup.html" class="text-gray-300 hover:text-teal-400 transition">Signup</a>
+        `;
+        return;
+      }
+
+      try {
+        const res = await fetch("http://localhost:5000/api/auth/me", {
+          headers: { Authorization: "Bearer " + token },
+        });
+        const user = await res.json();
+
+        if (res.ok) {
+          const roleLink = user.isAdmin
+            ? '<a href="admin.html" class="text-gray-300 hover:text-teal-400">Admin</a>'
+            : '<a href="booking.html" class="text-gray-300 hover:text-teal-400">My Bookings</a>';
+          navLinks.innerHTML = `
+            ${roleLink}
+            <button onclick="logout()" class="text-red-400 hover:text-red-300 transition">Logout</button>
+          `;
+        } else {
+          localStorage.removeItem("token");
+          navLinks.innerHTML = '<a href="login.html" class="text-gray-300 hover:text-teal-400">Login</a>';
+        }
+      } catch {
+        navLinks.innerHTML = '<a href="login.html" class="text-gray-300 hover:text-teal-400">Login</a>';
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("token");
+      window.location.href = "login.html";
+    }
+
+    updateNavbar();
+  </script>
+  <!-- Booking Modal -->
+<div id="bookingModal"
+  class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50 transition-opacity duration-300 ease-in-out opacity-0 scale-95">
+  <div class="bg-white text-gray-800 rounded-2xl p-6 w-96 shadow-lg relative transform transition-transform duration-200 ease-in-out">
+    <h2 class="text-2xl font-semibold mb-2 text-center text-teal-600">Book Car</h2>
+    <p id="priceInfo" class="text-gray-600 text-center mb-4"></p>
+
+    <div class="mb-3">
+      <label class="block text-gray-700 text-sm font-medium mb-1">Start Date</label>
+      <input type="date" id="startDate" class="w-full border rounded-lg p-2">
+    </div>
+
+    <div class="mb-3">
+      <label class="block text-gray-700 text-sm font-medium mb-1">End Date</label>
+      <input type="date" id="endDate" class="w-full border rounded-lg p-2">
+    </div>
+
+    <p id="totalPrice" class="text-center text-lg font-medium text-gray-700 mb-4"></p>
+
+    <div class="flex justify-end gap-3 mt-2">
+      <button id="cancelBtn" class="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-400">Cancel</button>
+      <button id="confirmBookingBtn" class="px-4 py-2 rounded-lg bg-teal-500 hover:bg-teal-600 text-white font-semibold">Confirm</button>
+    </div>
+
+    <button id="closeModal" class="absolute top-3 right-4 text-gray-500 text-xl hover:text-black">&times;</button>
+  </div>
+</div>
+
+</body>
+</html>
